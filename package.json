@@ -4,7 +4,8 @@
   "description": "A simple solution to get component set icons from Figma",
   "main": "fetchIcon.js",
   "scripts": {
-    "test": "test"
+    "test": "",
+    "fetch-icons": "node fetchIcons.js"
   },
   "repository": {
     "type": "git",
@@ -12,8 +13,7 @@
   },
   "keywords": [
     "Figma",
-    "design",
-    "system",
+    "design system",
     "icons"
   ],
   "author": "Josh Cusick",
