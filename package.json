@@ -1,0 +1,25 @@
+{
+  "name": "figma-icons-getter",
+  "version": "1.0.0",
+  "description": "A simple solution to get component set icons from Figma",
+  "main": "fetchIcon.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcusick93/figma-icons-getter.git"
+  },
+  "keywords": [
+    "Figma",
+    "design",
+    "system",
+    "icons"
+  ],
+  "author": "Josh Cusick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jcusick93/figma-icons-getter/issues"
+  },
+  "homepage": "https://github.com/jcusick93/figma-icons-getter#readme"
+}
