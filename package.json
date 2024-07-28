@@ -10,6 +10,9 @@
       "types": "./dist/lib.d.ts"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepare": "tsc",
     "start": "node --import tsx --env-file=.env src/cli.ts --file mfiglkk3bXQwetaRsftZQz --out ./playground"
