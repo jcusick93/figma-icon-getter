@@ -1,6 +1,6 @@
 {
   "name": "figma-icons-getter",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A simple solution to get component set icons from Figma",
   "type": "module",
   "bin": "dist/cli.js",
