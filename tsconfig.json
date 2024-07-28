@@ -1,10 +1,16 @@
 {
-  "extends": "@tsconfig/recommended",
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "Node16",
-    "moduleResolution": "NodeNext",
-    "outDir": "dist"
+    "lib": ["es2017"],
+    "module": "node16",
+    "target": "es2021",
+
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node16",
+
+    "outDir": "dist",
+    "declaration": true
   },
   "include": ["src"]
 }
