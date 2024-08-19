@@ -2,13 +2,13 @@
 
 This is a TypeScript library and CLI to fetch icons from [Figma](https://www.figma.com/) using their [REST API](https://www.figma.com/developers/api).
 
-## Advantages
+## Benefits
 - Automate icon workflow from Figma to production.
 - Sync repository with a single Figma file.
 - Use [component sets](https://help.figma.com/hc/en-us/articles/360056440594-Create-and-use-variants) in Figma, making it easier for designers to configure options.
 
 ## Design Setup
-1. Create a new Figma file and notate the file key
+1. Create a new Figma file and notate the file key.
 
 ![icons-01](https://github.com/user-attachments/assets/c583f79f-bd91-4d5c-9a6b-268064fef2bc)
 
@@ -23,6 +23,10 @@ This is a TypeScript library and CLI to fetch icons from [Figma](https://www.fig
 4. Add properties to the component, e.g. variant = filled | outlined and size = 16 | 24
 
 ![icons-04](https://github.com/user-attachments/assets/53ae04bc-803f-47d6-808c-378908230286)
+
+5. Generate a [personal access token](https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens). Make sure that the token has access to your icon file.
+
+![icons-05](https://github.com/user-attachments/assets/295c7612-86d0-4c1e-9831-8cad3b2865f4)
 
 
 ## Prerequisites
