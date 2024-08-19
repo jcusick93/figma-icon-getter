@@ -8,7 +8,7 @@ This is a TypeScript library and CLI to fetch icons from [Figma](https://www.fig
 - Use [component sets](https://help.figma.com/hc/en-us/articles/360056440594-Create-and-use-variants) in Figma, making it easier for designers to configure options.
 
 ## Design Setup
-1. Create a new Figma file and notate the [file id](https://help.figma.com/hc/en-us/articles/360052378433-Bubble-and-Figma#:~:text=The%20file%20ID%20is%20the,from%20your%20browser's%20address%20bar.).
+1. Create a new Figma file and notate the [file ID](https://help.figma.com/hc/en-us/articles/360052378433-Bubble-and-Figma#:~:text=The%20file%20ID%20is%20the,from%20your%20browser's%20address%20bar.).
 
 ![icons-01](https://github.com/user-attachments/assets/c583f79f-bd91-4d5c-9a6b-268064fef2bc)
 
