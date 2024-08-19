@@ -26,7 +26,9 @@ This is a CLI and TypeScript library to fetch icons from [Figma](https://www.fig
 
 ![icons-04](https://github.com/user-attachments/assets/5f17baac-3196-44d2-9be0-dfe441fb09e6)
 
-5. Generate a [personal access token](https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens). Make sure that the token has access to your icon file.
+5. Generate a [personal access token](https://help.figma.com/hc/en-us/articles/8085703771159-Manage-personal-access-tokens).
+> [!NOTE]
+> Make sure that the token has access to your icon file
 
 ![icons-05](https://github.com/user-attachments/assets/f4700368-8037-4caf-9610-685d2eb223ae)
 
