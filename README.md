@@ -1,6 +1,29 @@
 # Figma Icon Getter
 
-This script exports icons from a Figma file into a specified output directory.
+This is a TypeScript library and CLI to fetch icons from [Figma](https://www.figma.com/) using their [REST API](https://www.figma.com/developers/api).
+
+## Advantages
+- Automate icon workflow from Figma to production.
+- Sync repository with a single Figma file.
+- Use [component sets](https://help.figma.com/hc/en-us/articles/360056440594-Create-and-use-variants) in Figma, making it easier for designers to configure options.
+
+## Design Setup
+1. Create a new Figma file and notate the file key
+
+![icons-01](https://github.com/user-attachments/assets/c583f79f-bd91-4d5c-9a6b-268064fef2bc)
+
+2. Create a new icons. Make sure to flatten the paths to a single layer.
+
+![icons-02](https://github.com/user-attachments/assets/57a8ecca-ab93-4484-a1fe-a9fc792fc08f)
+
+3. Create a component set.
+
+![icons-03](https://github.com/user-attachments/assets/7d290b5d-bc48-4e5f-8cfd-37c4f2597aa2)
+
+4. Add properties to the component, e.g. variant = filled | outlined and size = 16 | 24
+
+![icons-04](https://github.com/user-attachments/assets/53ae04bc-803f-47d6-808c-378908230286)
+
 
 ## Prerequisites
 - Node.js: Make sure you have Node.js installed. You can download it from nodejs.org.
