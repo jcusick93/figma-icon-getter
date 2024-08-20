@@ -34,25 +34,61 @@ if (!outputDirectory) {
 
 const outPath = path.resolve(process.cwd(), outputDirectory);
 
-await fs.rm(outPath, { force: true, recursive: true });
-await fs.mkdir(outPath, { recursive: true });
+// Fetch the existing files in the output directory
+let existingFiles: string[] = [];
+try {
+  existingFiles = await fs.readdir(outPath);
+} catch (err) {
+  // If the directory doesn't exist, we'll create it
+  await fs.mkdir(outPath, { recursive: true });
+}
 
 const icons = await getFigmaIcons({
   figmaAccessToken,
   fileKey,
 });
 
-await Promise.all(
-  icons.map((icon) =>
-    fs.writeFile(
-      path.resolve(
-        outPath,
-        `${[
-          icon.name.replace(/\s/g, "_"),
-          ...Object.values(icon.properties),
-        ].join("-")}.svg`.toLowerCase()
-      ),
-      icon.svg
-    )
-  )
+// Create a Set of new file names to check for deletions
+const newFileNames = new Set(
+  icons.map((icon) => {
+    return `${[
+      icon.name.replace(/\s/g, "_"),
+      ...Object.values(icon.properties),
+    ].join("-")}.svg`.toLowerCase();
+  })
 );
+
+let removedCount = 0;
+
+// Identify and remove files that are no longer in Figma
+for (const file of existingFiles) {
+  if (!newFileNames.has(file)) {
+    await fs.rm(path.resolve(outPath, file));
+    console.log(`🩸 Removed ${file}`);
+    removedCount++;
+  }
+}
+
+let syncedCount = 0;
+
+// Write and log the new/updated files
+await Promise.all(
+  icons.map(async (icon) => {
+    const fileName = `${[
+      icon.name.replace(/\s/g, "_"),
+      ...Object.values(icon.properties),
+    ].join("-")}.svg`.toLowerCase();
+
+    await fs.writeFile(path.resolve(outPath, fileName), icon.svg);
+
+    console.log(`✅ Synced ${fileName}`);
+    syncedCount++;
+  })
+);
+
+console.log(
+  `----------------------------------\n🔥 Total icons synced: ${syncedCount}`
+);
+if (removedCount > 0) {
+  console.log(`💀 Total icons removed: ${removedCount}`);
+}
