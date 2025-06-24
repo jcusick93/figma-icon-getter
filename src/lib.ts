@@ -15,14 +15,22 @@ function parseIconName(
 export interface GetFigmaIconParameters {
   figmaAccessToken: string;
   fileKey: string;
+  nodeIds?: string[];
 }
 
 export async function getFigmaIcons({
   figmaAccessToken,
   fileKey,
+  nodeIds,
 }: GetFigmaIconParameters) {
-  function figmaFetch(url: string, requestInit?: RequestInit) {
-    return fetch(`https://api.figma.com/v1${url}`, {
+  function figmaFetch(url: string, requestInit?: RequestInit, nodeIds?: string[]) {
+    const baseUrl = new URL(`https://api.figma.com/v1${url}`);
+
+    if (nodeIds) {
+      baseUrl.searchParams.set('ids', nodeIds.join(','));
+    }
+
+    return fetch(baseUrl.toString(), {
       ...requestInit,
       headers: {
         ...requestInit?.headers,
@@ -31,7 +39,7 @@ export async function getFigmaIcons({
     });
   }
 
-  const fileRes = await figmaFetch(`/files/${fileKey}`);
+  const fileRes = await figmaFetch(`/files/${fileKey}`, undefined, nodeIds);
 
   if (!fileRes.ok) {
     const details = await fileRes.text();
@@ -88,9 +96,10 @@ export async function getFigmaIcons({
     .parse(await fileRes.json());
 
   const iconRefsRes = await figmaFetch(
-    `/images/${fileKey}?ids=${iconMetadata
+    `/images/${fileKey}?format=svg`,
+      undefined,
+      iconMetadata
       .map(({ id }) => id)
-      .join(",")}&format=svg`
   );
 
   return await z
