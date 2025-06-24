@@ -1,7 +1,7 @@
-import dotenv from "dotenv";
+const dotenv = require("dotenv");
 dotenv.config({ path: ".env" });
 
-import { getFigmaIcons } from "../lib";
+const { getFigmaIcons } = require("../lib");
 
 describe("getFigmaIcons", () => {
   const mockFileKey = process.env.FIGMA_FILE_KEY || "mock-file-key"; // Use .env value or fallback
@@ -16,7 +16,7 @@ describe("getFigmaIcons", () => {
     });
 
     expect(result).toBeDefined();
-    expect(result).toBeInstanceOf(Array);
+    expect(Array.isArray(result)).toBe(true);
   });
 
   it("should fetch all icons when nodeIds are not provided", async () => {
@@ -26,7 +26,7 @@ describe("getFigmaIcons", () => {
     });
 
     expect(result).toBeDefined();
-    expect(result).toBeInstanceOf(Array);
+    expect(Array.isArray(result)).toBe(true);
   });
 
   it("should throw an error for invalid fileKey", async () => {

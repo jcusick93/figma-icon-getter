@@ -1,16 +1,18 @@
 {
   "compilerOptions": {
-    "lib": ["es2017"],
-    "module": "node16",
-    "target": "es2021",
-
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "target": "ES2021",
+    "module": "ESNext",
     "moduleResolution": "node",
-
-    "outDir": "dist",
-    "declaration": true
+    "lib": ["ES2021"],
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "declaration": true,
+    "outDir": "dist"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
