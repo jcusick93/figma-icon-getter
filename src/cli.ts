@@ -8,10 +8,11 @@ function parseArgs(args: string[]) {
   const s = args.join(" ");
   const fileKey = (s.match(/\-\-file[\s=](\S+)/) || [])[1];
   const outputDirectory = (s.match(/\-\-out[\s=](\S+)/) || [])[1];
-  return { fileKey, outputDirectory };
+  const nodeIds = (s.match(/\-\-nodeIds[\s=](\S+)/) || [])[1]?.split(",");
+  return { fileKey, outputDirectory, nodeIds };
 }
 
-const { fileKey, outputDirectory } = parseArgs(process.argv);
+const { fileKey, outputDirectory, nodeIds } = parseArgs(process.argv);
 const figmaAccessToken = process.env.FIGMA_PAT;
 
 if (!figmaAccessToken) {
@@ -46,6 +47,7 @@ try {
 const icons = await getFigmaIcons({
   figmaAccessToken,
   fileKey,
+  nodeIds, // Pass nodeIds if provided
 });
 
 // Create a Set of new file names to check for deletions
